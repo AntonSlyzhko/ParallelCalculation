@@ -22,6 +22,7 @@ public class App extends Application {
             e.consume();
             closeRequest(stage);
         });
+
     }
 
     private void closeRequest(Stage stage){
@@ -31,6 +32,7 @@ public class App extends Application {
         alert.setContentText(null);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.orElse(null) == ButtonType.OK){
+            CalculationThread.terminate();
             stage.close();
         }
     }
